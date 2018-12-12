@@ -316,6 +316,9 @@ define(['require', 'exports'], function(require, exports) {
    * @param {IStyleRecord} styleRecord May specify a style Element to update.
    */
   function registerStyles(styleArray) {
+    if (typeof document === 'undefined') {
+      return;
+    }
     var head = document.getElementsByTagName('head')[0];
     var styleElement = document.createElement('style');
     var _a = resolveThemableArray(styleArray),
